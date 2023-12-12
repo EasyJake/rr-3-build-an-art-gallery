@@ -1,22 +1,47 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import Gallery from "./components/Gallery";
-import Buttons from "./components/Buttons";
+// import { useState, useEffect } from "react";
+// import "./App.css";
+// import Gallery from "./components/Gallery";
+// import Buttons from "./components/Buttons";
 
-function App (){
-let [artId, setArtId] = useState(12720)
-let [data, setData] = useState({})
+// // function App (){
+// // let [artId, setArtId] = useState(12720)
+// // let [data, setData] = useState({})
 
-const handleIterate = (e) => {
-  setArtId(artId + Number(e.target.value))
+// // const handleIterate = (e) => {
+// //   setArtId(artId + Number(e.target.value))
+// // }
+
+import {useState, useEffect} from 'react'
+
+function App(){
+{/* State variables here... */}
+    useEffect(() => {
+        document.title = 'Welcome to ArtWorld'
+    })
+{/* Return JSX down here... */}
 }
 
-useEffect(() => {
-    document.title='Welcome to Artworld'
-    fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${artId}`)
-    .then(response => response.json())
-    .then(resData => setData(resData))
-}, [artId])
+
+// useEffect(() => {
+//     document.title='Welcome to Artworld'
+//     fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${artId}`)
+//     .then(response => response.json())
+//     .then(resData => setData(resData))
+// }, [artId])
+
+useEffect(() => {let [artId, setArtId] = useState(12720)
+  let [data, setData] = useState({})
+  
+  useEffect(() => {
+      document.title='Welcome to Artworld'
+      fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${artId}`)
+      .then(response => response.json())
+      .then(resData => setData(resData))
+  }, [artId])
+  }, [artId])
+
+
+
 
   return (
     <div>
